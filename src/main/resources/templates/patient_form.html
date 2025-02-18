@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Patient Form</title>
+</head>
+<body>
+    
+    <form th:action="@{/patient/submit}" th:object="${patient}" method="post">
+        <table>
+            <tr>
+                <th colspan="2" style="align-items: center;">Patient Registration Form</th>
+            </tr>
+            <tr>
+                <td>Patient ID:</td>
+                <td><input type="text" th:field="*{patient_id}" required/></td>
+            </tr>
+            <tr>
+                <td>Full Name:</td>
+                <td><input type="text" th:field="*{full_name}" required/></td>
+            </tr>
+            <tr>
+                <td>Contact Number:</td>
+                <td><input type="text" th:field="*{contact_number}" required/></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" th:field="*{email}" required/></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input type="text" th:field="*{address}"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="align-items: center;"><button type="submit">Submit</button></td>
+            </tr>
+        </table>        
+    </form>
+</body>
+</html>
