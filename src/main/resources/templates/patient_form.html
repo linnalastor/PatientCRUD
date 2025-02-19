@@ -5,7 +5,7 @@
 </head>
 <body>
     
-    <form th:action="@{/patient/submit}" th:object="${patient}" method="post">
+    <form th:action="@{/patient/add}" th:object="${patient}" method="post">
         <table>
             <tr>
                 <th colspan="2" style="align-items: center;">Patient Registration Form</th>
@@ -33,7 +33,9 @@
             <tr>
                 <td colspan="2" style="align-items: center;"><button type="submit">Submit</button></td>
             </tr>
-        </table>        
+        </table>   
     </form>
+    <a href="/patient/list">Check Patient List</a><br>
+    <a href="/home">Back To Home</a>
 </body>
 </html>

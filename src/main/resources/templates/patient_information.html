@@ -10,6 +10,27 @@
     <p><strong>Contact Number:</strong> <span th:text="${patient.contact_number}"></span></p>
     <p><strong>Email:</strong> <span th:text="${patient.email}"></span></p>
     <p><strong>Address:</strong> <span th:text="${patient.address}"></span></p>
-    <a href="/patient/form">Back to Form</a>
+
+    <form action="/patient/updateHiddenForm" method="post">
+        <input type="hidden" name="patient_id" th:value="${patient.patient_id}" />
+        <input type="hidden" name="full_name" th:value="${patient.full_name}" />
+        <input type="hidden" name="contact_number" th:value="${patient.contact_number}" />
+        <input type="hidden" name="email" th:value="${patient.email}" />
+        <input type="hidden" name="address" th:value="${patient.address}" />
+        <button type="submit">Update Patient with Hidden Form</button>
+    </form>
+    <br>
+    <a th:href="@{/patient/updateParam(
+        patient_id=${patient.patient_id}, 
+        full_name=${patient.full_name}, 
+        contact_number=${patient.contact_number}, 
+        email=${patient.email}, 
+        address=${patient.address}
+        )}">Update Patient Information with Param</a> <br>
+
+        
+    <a href="/patient/list">Check Patient List</a><br>
+    <a href="/patient/form">Add New Patient</a><br>
+    <a href="/home">Back To Home</a>
 </body>
 </html>

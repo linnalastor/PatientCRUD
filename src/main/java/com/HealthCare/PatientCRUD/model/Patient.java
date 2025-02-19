@@ -7,6 +7,17 @@ public class Patient {
 		return patient_id;
 	}
 
+	public Patient(String patient_id, String full_name, String contact_number, String email, String address) {
+		this.patient_id = patient_id;
+		this.full_name = full_name;
+		this.contact_number = contact_number;
+		this.email = email;
+		this.address = address;
+	}
+
+	public Patient() {
+	}
+	
 	public String getFull_name() {
 		return full_name;
 	}
