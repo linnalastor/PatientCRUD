@@ -19,15 +19,15 @@
         </thead>
         <tbody>
             <tr th:each="patient : ${patients}">
-                <td th:text="${patient.patient_id}"></td>
-                <td th:text="${patient.full_name}"></td>
-                <td th:text="${patient.contact_number}"></td>
-                <td th:text="${patient.email}"></td>
-                <td th:text="${patient.address}"></td>
+                <td th:text="${patient.key}"></td>
+                <td th:text="${patient.value.full_name}"></td>
+                <td th:text="${patient.value.contact_number}"></td>
+                <td th:text="${patient.value.email}"></td>
+                <td th:text="${patient.value.address}"></td>
                 <td>
-                    <a th:href="@{/patient/edit(patientId=${patient.patient_id})}">Edit</a>
+                    <a th:href="@{/patient/edit(patient_id=${patient.key})}">Edit</a>
                     <form action="/patient/delete" method="post" style="display:inline;">
-                        <input type="hidden" name="patientId" th:value="${patient.patient_id}" />
+                        <input type="hidden" name="patient_id" th:value="${patient.key}" />
                         <button type="submit">Delete</button>
                     </form>
                 </td>
