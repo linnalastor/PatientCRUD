@@ -5,14 +5,14 @@
 </head>
 <body>
     
-    <form th:action="@{/patient/add}" th:object="${patient}" method="post">
+    <form id="patient_form" th:action="@{/patient/add}" th:object="${patient}" method="post">
         <table>
             <tr>
                 <th colspan="2" style="align-items: center;">Patient Registration Form</th>
             </tr>
             <tr>
                 <td>Patient ID:</td>
-                <td><input type="text" th:field="*{patient_id}" required/></td>
+                <td><input type="text" id="patient_id" th:field="*{patient_id}" required/></td>
             </tr>
             <tr>
                 <td>Full Name:</td>
@@ -35,6 +35,13 @@
             </tr>
         </table>   
     </form>
+    
+    <script>
+        if ([[${update_patient}]]) {
+            document.getElementById("patient_id").readOnly = true;
+            document.getElementById("patient_form").action = "/patient/update";
+        }
+    </script>
     <a href="/patient/list">Check Patient List</a><br>
     <a href="/home">Back To Home</a>
 </body>
